@@ -1,0 +1,13 @@
+# Dependencies / build output
+node_modules/
+dist/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Local env / OS
+.env
+.env.*
+.venv/
+venv/
+.DS_Store

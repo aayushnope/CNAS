@@ -1,0 +1,18 @@
+{
+  "nodes": [
+    {
+      "id": "DOC-0001",
+      "label": "FIR DOC-0001",
+      "kind": "FIR",
+      "cell": "FIR",
+      "day": null,
+      "location": "",
+      "degree": 0
+    }
+  ],
+  "edges": [],
+  "stats": {
+    "node_count": 1,
+    "edge_count": 0
+  }
+}

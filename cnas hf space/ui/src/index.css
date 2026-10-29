@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  html { font-family: 'Inter', sans-serif; }
+  ::-webkit-scrollbar { width: 4px; height: 4px; }
+  ::-webkit-scrollbar-track { background: #0f1525; }
+  ::-webkit-scrollbar-thumb { background: #243050; border-radius: 2px; }
+}
+
+@layer components {
+  /* ── Gov light primitives (pilot: Layout, Dashboard, Graph, Login) ─────── */
+  .gov-card {
+    @apply bg-gov-surface border border-gov-border rounded-xl shadow-gov;
+  }
+  .gov-btn {
+    @apply bg-gov-navy hover:bg-gov-navydeep text-white text-sm font-medium
+           px-4 py-2 rounded-lg transition-colors flex items-center gap-2;
+  }
+  .gov-btn-accent {
+    @apply bg-gov-saffron hover:brightness-95 text-white text-sm font-medium
+           px-4 py-2 rounded-lg transition-colors flex items-center gap-2;
+  }
+  .gov-ghost {
+    @apply hover:bg-gov-wash text-gov-muted hover:text-gov-ink text-sm
+           px-3 py-2 rounded-lg transition-colors flex items-center gap-2;
+  }
+  .gov-input {
+    @apply bg-white border border-gov-borderd rounded-lg px-3 py-2 text-sm
+           text-gov-ink placeholder-gov-faint focus:outline-none focus:border-gov-navy
+           transition-colors w-full;
+  }
+  .gov-nav {
+    @apply flex items-center gap-3 px-3 py-2 rounded-lg text-[13px] text-gov-muted
+           hover:text-gov-ink hover:bg-gov-wash transition-all cursor-pointer;
+  }
+  .gov-nav.active {
+    @apply text-white bg-gov-navy font-bold;
+    box-shadow: inset 3px 0 0 #3b82f6;
+  }
+  .gov-stat {
+    @apply gov-card p-4 flex flex-col gap-1;
+  }
+  .gov-well {
+    @apply bg-gov-wash border border-gov-border rounded-lg;
+  }  .gov-tag {
+    @apply text-[10px] font-semibold px-2 py-0.5 rounded-full border font-mono whitespace-nowrap;
+  }
+
+  /* Light-safe badge variants inside gov surfaces (dark pages keep the
+     translucent originals above) */
+  .gov-card .badge-person   { @apply bg-red-50 text-gov-red border-red-200; }
+  .gov-card .badge-phone    { @apply bg-blue-50 text-blue-700 border-blue-200; }
+  .gov-card .badge-account  { @apply bg-green-50 text-gov-igreen border-green-200; }
+  .gov-card .badge-location { @apply bg-orange-50 text-orange-700 border-orange-200; }
+  .gov-card .badge-vehicle  { @apply bg-purple-50 text-purple-700 border-purple-200; }
+  .gov-card .badge-organization { @apply bg-cyan-50 text-cyan-700 border-cyan-200; }
+  .gov-card .badge-post         { @apply bg-slate-100 text-slate-600 border-slate-300; }
+  .gov-card .badge-fir          { @apply bg-yellow-50 text-yellow-700 border-yellow-200; }
+  .gov-card .badge-surveillance { @apply bg-orange-50 text-orange-700 border-orange-200; }
+  .gov-card .badge-intel        { @apply bg-fuchsia-50 text-fuchsia-700 border-fuchsia-200; }
+
+  /* ── Legacy dark primitives (non-pilot pages) ─────────────────────────── */
+  .card {
+    @apply bg-dark-800 border border-dark-600 rounded-xl;
+  }
+  .badge-person   { @apply bg-red-500/20   text-red-400   border border-red-500/30   text-xs px-2 py-0.5 rounded-full font-mono; }
+  .badge-phone    { @apply bg-blue-500/20  text-blue-400  border border-blue-500/30  text-xs px-2 py-0.5 rounded-full font-mono; }
+  .badge-account  { @apply bg-green-500/20 text-green-400 border border-green-500/30 text-xs px-2 py-0.5 rounded-full font-mono; }
+  .badge-location { @apply bg-orange-500/20 text-orange-400 border border-orange-500/30 text-xs px-2 py-0.5 rounded-full font-mono; }
+  .badge-vehicle  { @apply bg-purple-500/20 text-purple-400 border border-purple-500/30 text-xs px-2 py-0.5 rounded-full font-mono; }
+  .badge-organization { @apply bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 text-xs px-2 py-0.5 rounded-full font-mono; }
+  .badge-post         { @apply bg-gray-500/20 text-gray-400 border border-gray-500/30 text-xs px-2 py-0.5 rounded-full font-mono; }
+  .badge-fir          { @apply bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 text-xs px-2 py-0.5 rounded-full font-mono; }
+  .badge-surveillance { @apply bg-orange-500/20 text-orange-300 border border-orange-500/30 text-xs px-2 py-0.5 rounded-full font-mono; }
+  .badge-intel        { @apply bg-fuchsia-500/20 text-fuchsia-400 border border-fuchsia-500/30 text-xs px-2 py-0.5 rounded-full font-mono; }
+
+  .risk-high   { @apply text-red-400 bg-red-500/10 border-red-500/30; }
+  .risk-medium { @apply text-yellow-400 bg-yellow-500/10 border-yellow-500/30; }
+  .risk-low    { @apply text-green-400 bg-green-500/10 border-green-500/30; }
+
+  .nav-item {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-gray-400
+           hover:text-white hover:bg-dark-600 transition-all cursor-pointer;
+  }
+  .nav-item.active {
+    @apply text-white bg-dark-600 border-l-2 border-accent-blue;
+  }
+  .btn-primary {
+    @apply bg-accent-blue hover:bg-blue-600 text-white text-sm font-medium
+           px-4 py-2 rounded-lg transition-colors flex items-center gap-2;
+  }
+  .btn-ghost {
+    @apply hover:bg-dark-600 text-gray-400 hover:text-white text-sm
+           px-3 py-2 rounded-lg transition-colors flex items-center gap-2;
+  }
+  .input-dark {
+    @apply bg-dark-700 border border-dark-500 rounded-lg px-3 py-2 text-sm
+           text-white placeholder-gray-500 focus:outline-none focus:border-blue-500
+           transition-colors w-full;
+  }
+  .stat-card {
+    @apply card p-4 flex flex-col gap-1;
+  }
+  .pulse-dot {
+    @apply w-2 h-2 rounded-full animate-pulse;
+  }
+}
